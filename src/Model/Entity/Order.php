@@ -32,4 +32,9 @@ class Order extends Entity
         '*' => true,
         'id' => false
     ];
+
+    public function initialize(array $config)
+    {
+        $this->belongsTo('Items');
+    }
 }

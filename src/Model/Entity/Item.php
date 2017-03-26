@@ -29,4 +29,10 @@ class Item extends Entity
         '*' => true,
         'id' => false
     ];
+
+    public function initialize(array $config)
+    {
+        $this->hasMany('Orders');
+        $this->hasMany('Sites');
+    }
 }

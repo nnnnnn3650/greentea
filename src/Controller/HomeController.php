@@ -14,7 +14,8 @@ class HomeController extends AppController
   public function index()
   {
     $items = TableRegistry::get('Items');
-    $results = $items->find()->all();
+    $results = $items->find('all')
+                ->contain('Orders');
 
     $this->set(compact('results'));
   }
