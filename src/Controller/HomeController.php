@@ -13,10 +13,11 @@ class HomeController extends AppController
 
   public function index()
   {
-    $items = TableRegistry::get('Items');
-    $results = $items->find('all')
+    $itemsTable = TableRegistry::get('Items');
+    $sitesTable = TableRegistry::get('Sites');
+    $results = $itemsTable->find('all')
                 ->contain('Orders');
-
-    $this->set(compact('results'));
+    $sites = $sitesTable->find()->all();
+    $this->set(compact('results', 'sites'));
   }
 }
